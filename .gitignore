@@ -114,6 +114,7 @@ dist
 
 # production
 /build
+/src/assets/styles/index.min.css
 
 # misc
 .DS_Store
