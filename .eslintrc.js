@@ -22,5 +22,11 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-props-no-spreading': [
+      0,
+      {
+        html: 'ignore' | 'enforce',
+      },
+    ],
   },
 };
