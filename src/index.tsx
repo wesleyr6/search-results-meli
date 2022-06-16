@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './containers/Home';
-import SearchResults from './containers/SearchResults';
-import Details from './containers/Details';
+import PublicRoutes from './routes';
 import reportWebVitals from './reportWebVitals';
 import './assets/styles/index.min.css';
 
@@ -13,13 +10,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/items" element={<SearchResults />} />
-        <Route path="/items/:id" element={<Details />} />
-      </Routes>
-    </BrowserRouter>
+    <PublicRoutes />
   </React.StrictMode>
 );
 
