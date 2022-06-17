@@ -1,36 +1,57 @@
+import { Link } from 'react-router-dom';
 import IMG_ICON_SHIPMENT from '../../assets/images/icon-shipment.png';
+import { convertPriceToCurrency } from '../../utils';
 
 interface IProps {
-  price: string;
+  id: string;
+  price: number;
   title: string;
+  currency: string;
   img: string;
   location?: string;
+  freeShipping: boolean;
 }
 
-function Card({ title, img, price, location }: IProps) {
+function Card({
+  id,
+  title,
+  currency,
+  img,
+  price,
+  location,
+  freeShipping,
+}: IProps) {
   return (
     <>
-      <figure className="rounded-xs min-w-45 min-h-45 max-w-45 max-h-45 overflow-hidden justify-center items-center content-center ml-0 my-0 mr-4 inline-flex border-none outline-none">
-        <img
-          src={img}
-          alt={title}
-          role="presentation"
-          className="object-fit w-full h-full inline-flex border-none outline-none bg-gray-150"
-        />
-      </figure>
+      <Link
+        to={`/items/${id}`}
+        className="rounded-xs min-w-45 min-h-45 max-w-45 max-h-45 overflow-hidden ml-0 my-0 mr-4 inline-flex"
+      >
+        <figure className="min-w-45 min-h-45 max-w-45 max-h-45 overflow-hidden justify-center items-center content-center inline-flex border-none outline-none">
+          <img
+            src={img}
+            alt={title}
+            role="presentation"
+            className="object-contain w-full h-full inline-flex border-none outline-none bg-white"
+          />
+        </figure>
+      </Link>
 
       <div className="w-full inline-flex flex-col py-4 box-border">
         <div className="w-full grid grid-cols-4 gap-4 mb-8">
           <div className="col-span-4 sm:col-span-3 inline-flex items-center content-center">
-            <span className="text-2xl leading-none inline-flex no-underline text-gray-750">
-              ${price}
+            <span className="text-2xl leading-none inline-flex no-underline text-gray-750 whitespace-nowrap">
+              ${convertPriceToCurrency(currency, price)}
             </span>
-            <img
-              src={IMG_ICON_SHIPMENT}
-              alt="Envío grátis"
-              title="Envío grátis"
-              className="inline-flex ml-2 border-none outline-none"
-            />
+
+            {freeShipping && (
+              <img
+                src={IMG_ICON_SHIPMENT}
+                alt="Envío grátis"
+                title="Envío grátis"
+                className="inline-flex ml-2 border-none outline-none"
+              />
+            )}
           </div>
 
           <div>

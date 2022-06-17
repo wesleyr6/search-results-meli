@@ -28,6 +28,7 @@ module.exports = {
       },
       minHeight: {
         45: '180px',
+        '2.5xl': '680px',
       },
       maxWidth: {
         45: '180px',
@@ -35,6 +36,7 @@ module.exports = {
       },
       maxHeight: {
         45: '180px',
+        '2.5xl': '680px',
       },
     },
   },

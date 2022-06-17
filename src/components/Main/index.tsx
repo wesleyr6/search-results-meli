@@ -8,7 +8,7 @@ interface IProps {
 
 function Main({ children, className }: IProps) {
   return (
-    <main className="w-full">
+    <main className="w-full mb-4">
       <Wrapper>
         <div className={`w-full rounded-xs bg-white box-border ${className}`}>
           {children}
