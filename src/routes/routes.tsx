@@ -3,6 +3,7 @@ import { FC } from 'react';
 import Home from '../containers/Home';
 import SearchResults from '../containers/SearchResults';
 import Details from '../containers/Details';
+import NotFound from '../containers/NotFound';
 
 interface IContainerProps {
   [key: string]: string | number;
@@ -37,6 +38,13 @@ export const arrRoutes: IRoutes[] = [
     private: false,
     containerProps: {},
     container: Details,
+  },
+  {
+    path: '/404',
+    active: true,
+    private: false,
+    containerProps: {},
+    container: NotFound,
   },
 ];
 
