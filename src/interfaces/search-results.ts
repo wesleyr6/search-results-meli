@@ -16,5 +16,5 @@ export interface ISearchResults {
     lastname: string;
   };
   category: string;
-  items: IItems;
+  items: IItems[];
 }

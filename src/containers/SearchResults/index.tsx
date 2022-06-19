@@ -31,7 +31,7 @@ function SearchResults() {
       try {
         const { data }: IResults = await getResults(querySearch);
 
-        setResults([...results, data.items]);
+        setResults([...results, ...data.items]);
 
         if (data.category) {
           setCategory([data.category]);
