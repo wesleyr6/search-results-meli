@@ -13,6 +13,7 @@ const Button = forwardRef(
 
     return (
       <button
+        // eslint-disable-next-line
         type={type}
         className={`text-white bg-secondary rounded-xs text-base inline-flex justify-center items-center content-center box-border px-8 py-3 hover:bg-secondaryHover transition-all duration-300 ${className}`}
         ref={ref}
