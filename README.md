@@ -18,6 +18,12 @@ This project was built to practice react, typescript, tailwind and responsive we
 - lint-staged (to run linters against staged git files)
 - react-lazy-load-image-component (used to perform images)
 
+## Backend
+
+The backend was built in NodeJS with Express as a bridge between our frontend side and MELI's API.
+
+[https://github.com/wesleyr6/search-results-meli-api](https://github.com/wesleyr6/search-results-meli-api)
+
 ## Demo
 
 ### First Page
@@ -49,14 +55,14 @@ First of all, you need to configure your environment variables creating a `.env`
 `REACT_APP_API_URL=https://meli-express-api.herokuapp.com/api`
 `PORT=3000`
 
-### `yarn`
+### Install the dependecies packages
 
-After configured your environment variables you will need to install the dependecies packages.
+After configured your environment variables you will need to install the dependecies packages running `yarn`.
 
-### `yarn run tailwindcss:watch`
+### Run TailwindCSS
 
-After you have configured your environment variables and installed all the dependencies packages you will need to run the TailwindCSS to build and to watch your CSS changes. TailwindCSS is the most modern CSS Framework to scale large teams [TailwindCSS Website](https://tailwindcss.com/)
+After you have configured your environment variables and installed all the dependencies packages you will need to run `yarn run tailwindcss:watch` to build and to watch your CSS changes. TailwindCSS is the most modern CSS Framework to scale large teams [TailwindCSS Website](https://tailwindcss.com/)
 
-### `yarn start`
+### Run the Project
 
-After that, using another tab in your terminal, you can run the project.
+After that, using another tab in your terminal, you can start the project running `yarn start`.
