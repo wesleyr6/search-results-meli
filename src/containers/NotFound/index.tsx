@@ -1,14 +1,12 @@
-import Header from '../../components/Header';
-import Breadcrumb from '../../components/Breadcrumb';
-import Main from '../../components/Main';
+import Head from '../../components/Head';
+import MasterPage from '../../components/MasterPage';
 
 function NotFound() {
   return (
-    <div className="w-full">
-      <Header />
-      <Breadcrumb items={[]} />
-      <Main className="p-4">404</Main>
-    </div>
+    <>
+      <Head title="Página no encontrada" />
+      <MasterPage>404</MasterPage>
+    </>
   );
 }
 

@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
-
-import Header from '../../components/Header';
-import Breadcrumb from '../../components/Breadcrumb';
-import Main from '../../components/Main';
 import Card from '../../components/Card';
 import useQuery from '../../hooks/useQuery';
 import { getResults } from '../../actions/items';
 import Loader from '../../components/Loader';
 import { IItems, ISearchResults } from '../../interfaces/search-results';
+import Head from '../../components/Head';
+import MasterPage from '../../components/MasterPage';
 
 interface IResults {
   data: ISearchResults;
@@ -15,7 +13,7 @@ interface IResults {
 
 function SearchResults() {
   const query = useQuery();
-  const querySearch = query.get('search') ?? '';
+  const querySearch = query.get('search') || '';
 
   const [loadingResults, setLoadingResults] = useState<boolean>(true);
   const [results, setResults] = useState<IItems[]>([]);
@@ -50,12 +48,9 @@ function SearchResults() {
   }, [querySearch]);
 
   return (
-    <div className="w-full">
-      <Header />
-
-      <Breadcrumb items={category} />
-
-      <Main className="p-4">
+    <>
+      <Head title={querySearch} />
+      <MasterPage breadcrumbItems={category}>
         {loadingResults && <Loader />}
 
         {!loadingResults && (
@@ -84,8 +79,8 @@ function SearchResults() {
             )}
           </div>
         )}
-      </Main>
-    </div>
+      </MasterPage>
+    </>
   );
 }
 

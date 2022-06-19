@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getProductDetail } from '../../actions/items';
-import Breadcrumb from '../../components/Breadcrumb';
 import Button from '../../components/Button';
-import Header from '../../components/Header';
+import Head from '../../components/Head';
 import Loader from '../../components/Loader';
-import Main from '../../components/Main';
+import MasterPage from '../../components/MasterPage';
 import { IProductDetail } from '../../interfaces/product-detail';
 import { convertPriceToCurrency, getNamefromCondition } from '../../utils';
 
@@ -49,11 +48,9 @@ function Details() {
   }, [productId]);
 
   return (
-    <div className="w-full">
-      <Header />
-      <Breadcrumb items={category} />
-
-      <Main className="p-8">
+    <>
+      <Head title={productDetail ? productDetail.item.title : ''} />
+      <MasterPage contentClassName="p-8" breadcrumbItems={category}>
         {loading && <Loader />}
 
         {!loading && (
@@ -116,8 +113,8 @@ function Details() {
             )}
           </div>
         )}
-      </Main>
-    </div>
+      </MasterPage>
+    </>
   );
 }
 
