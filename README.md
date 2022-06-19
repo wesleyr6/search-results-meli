@@ -1,7 +1,7 @@
 <h1 align="center">MELI Search Results (React 18 + Typescript 4 + TailwindCSS)</h1>
 
 <p align="center">
-  <a href="https://dashboard.heroku.com/pipelines/24eda269/tests" target="_blank">
+  <a href="https://dashboard.heroku.com/pipelines/0176bf73-fe17-4c45-9cd7-9d942095bb64/tests" target="_blank">
     <img src="https://meli-react-badge.herokuapp.com/last.svg" />
   </a>
   <a href="https://meli-react-dev.herokuapp.com/" target="_blank">
@@ -13,6 +13,17 @@
 </p>
 
 This project was built to practice react, typescript, tailwind and responsive web design.
+
+## Requirements
+
+- node 16.X
+- npm 7
+- vscode (include extensions)
+
+### VSCode Extensions
+
+- ESLint
+- Prettier
 
 ## Packages used
 
