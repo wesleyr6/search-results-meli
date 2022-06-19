@@ -101,7 +101,7 @@ function Details() {
                     Descripción del producto
                   </h2>
 
-                  <p className="inline-flex m-0 p-0 text-base text-gray-450">
+                  <p className="w-full inline-flex m-0 p-0 text-base text-gray-450 box-border">
                     {productDetail.item.description
                       ? productDetail.item.description
                       : 'El vendedor no ha añadido ninguna descripción del producto.'}

@@ -25,9 +25,9 @@ function Card({
     <>
       <Link
         to={`/items/${id}`}
-        className="rounded-xs min-w-45 min-h-45 max-w-45 max-h-45 overflow-hidden ml-0 my-0 mr-4 inline-flex"
+        className="rounded-xs min-w-30 sm:min-w-45 min-h-45 max-w-45 max-h-45 overflow-hidden ml-0 my-0 mr-4 inline-flex justify-center items-center content-center"
       >
-        <figure className="min-w-45 min-h-45 max-w-45 max-h-45 overflow-hidden justify-center items-center content-center inline-flex border-none outline-none">
+        <figure className="min-w-30 min-h-30 max-w-30 max-h-30 sm:min-w-45 sm:min-h-45 sm:max-w-45 sm:max-h-45 overflow-hidden justify-center items-center content-center inline-flex border-none outline-none">
           <img
             src={picture}
             alt={title}

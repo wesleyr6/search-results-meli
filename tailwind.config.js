@@ -24,18 +24,22 @@ module.exports = {
       },
       minWidth: {
         13.25: '53px',
+        30: '120px',
         45: '180px',
         '2.5xl': '680px',
       },
       minHeight: {
+        30: '120px',
         45: '180px',
         '2.5xl': '680px',
       },
       maxWidth: {
+        30: '120px',
         45: '180px',
         '2.5xl': '680px',
       },
       maxHeight: {
+        30: '120px',
         45: '180px',
         '2.5xl': '680px',
       },
