@@ -4,7 +4,10 @@ export function convertPriceToCurrency(currency: string, amount: number) {
     currency,
   }).format(amount);
 
-  return format.replace(currency, '').trim();
+  return format
+    .replace(/\D00(?=\D*$)/, '')
+    .replace(currency, '')
+    .trim();
 }
 
 export function getNamefromCondition(
