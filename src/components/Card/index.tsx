@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import IMG_ICON_SHIPMENT from '../../assets/images/icon-shipment.png';
 import { convertPriceToCurrency } from '../../utils';
 
@@ -21,18 +22,25 @@ function Card({
   location,
   freeShipping,
 }: IProps) {
+  const imageW = 'w-full min-w-30 max-w-30 sm:min-w-45 sm:max-w-45';
+  const imageH = 'h-full min-h-45 max-h-45 sm:min-h-45 sm:max-h-45';
+
   return (
     <>
       <Link
         to={`/items/${id}`}
-        className="rounded-xs min-w-30 sm:min-w-45 min-h-45 max-w-45 max-h-45 overflow-hidden ml-0 my-0 mr-4 inline-flex justify-center items-center content-center"
+        className={`${imageW} ${imageH} overflow-hidden ml-0 my-0 mr-4 inline-flex justify-center items-center content-center rounded-xs`}
       >
-        <figure className="min-w-30 min-h-30 max-w-30 max-h-30 sm:min-w-45 sm:min-h-45 sm:max-w-45 sm:max-h-45 overflow-hidden justify-center items-center content-center inline-flex border-none outline-none">
-          <img
-            src={picture}
+        <figure
+          className={`${imageW} ${imageH} overflow-hidden justify-center items-center content-center inline-flex border-none outline-none`}
+        >
+          <LazyLoadImage
             alt={title}
+            width="100%"
+            height="100%"
             role="presentation"
-            className="object-contain w-full h-full inline-flex border-none outline-none bg-white"
+            src={picture}
+            className={`${imageW} ${imageH} object-contain inline-flex border-none outline-none bg-white`}
           />
         </figure>
       </Link>

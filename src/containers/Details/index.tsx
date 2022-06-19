@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getProductDetail } from '../../actions/items';
 import Button from '../../components/Button';
@@ -59,7 +60,7 @@ function Details() {
               <div className="w-full">
                 <div className="w-full flex flex-wrap sm:flex-nowrap">
                   <figure className="inline-flex w-full lg:min-w-2.5xl max-w-2.5xl max-h-2.5xl  rounded-xs mb-4 mr-4 sm:mb-0">
-                    <img
+                    <LazyLoadImage
                       src={productDetail.item.picture}
                       alt="Foto"
                       role="presentation"
