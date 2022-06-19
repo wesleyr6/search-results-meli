@@ -1,43 +1,25 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getProductDetail } from '../../actions/items';
 import Breadcrumb from '../../components/Breadcrumb';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Loader from '../../components/Loader';
 import Main from '../../components/Main';
-import { convertPriceToCurrency } from '../../utils';
+import { IProductDetail } from '../../interfaces/product-detail';
+import { convertPriceToCurrency, getNamefromCondition } from '../../utils';
 
-interface IAuthor {
-  name: string;
-  lastname: string;
-}
-
-interface IPrices {
-  currency: string;
-  amount: number;
-  decimals: number;
-}
-interface IProduct {
-  id: string;
-  title: string;
-  price: IPrices;
-  picture: string;
-  condition: string;
-  free_shipping: boolean;
-  sold_quantity: number;
-  description: string;
-}
-interface IProductDetail {
-  author: IAuthor;
-  item: IProduct;
+interface IResult {
+  data: IProductDetail;
 }
 
 function Details() {
+  const navigate = useNavigate();
   const params = useParams();
   const { id: productId } = params;
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [category, setCategory] = useState<string[]>([]);
   const [productDetail, setProductDetail] = useState<IProductDetail | null>(
     null
   );
@@ -45,16 +27,20 @@ function Details() {
   const fetchProductDetail = async () => {
     if (productId) {
       try {
-        const { data } = await getProductDetail(productId);
+        const { data }: IResult = await getProductDetail(productId);
         setProductDetail(data);
+
+        if (data?.item?.category?.name) {
+          setCategory([data.item.category.name]);
+        }
+
         setLoading(false);
       } catch {
         setProductDetail(null);
         setLoading(false);
       }
     } else {
-      setProductDetail(null);
-      setLoading(false);
+      navigate('/404');
     }
   };
 
@@ -65,7 +51,7 @@ function Details() {
   return (
     <div className="w-full">
       <Header />
-      <Breadcrumb />
+      <Breadcrumb items={category} />
 
       <Main className="p-8">
         {loading && <Loader />}
@@ -75,7 +61,7 @@ function Details() {
             {productDetail ? (
               <div className="w-full">
                 <div className="w-full flex flex-wrap sm:flex-nowrap">
-                  <figure className="w-full inline-flex max-w-2.5xl max-h-2.5xl  rounded-xs mb-4 mr-4 sm:mb-0">
+                  <figure className="inline-flex w-full lg:min-w-2.5xl max-w-2.5xl max-h-2.5xl  rounded-xs mb-4 mr-4 sm:mb-0">
                     <img
                       src={productDetail.item.picture}
                       alt="Foto"
@@ -86,7 +72,9 @@ function Details() {
 
                   <div className="w-full sm:w-auto flex flex-col">
                     <h2 className="inline-flex text-xs mb-4 text-gray-550 capitalize">
-                      {`${productDetail.item.condition} - ${productDetail.item.sold_quantity} vendidos`}
+                      {`${getNamefromCondition(
+                        productDetail.item.condition
+                      )} - ${productDetail.item.sold_quantity} vendidos`}
                     </h2>
 
                     <h1 className="inline-flex text-2xl text-gray-750 leading-tight">
@@ -117,7 +105,9 @@ function Details() {
                   </h2>
 
                   <p className="inline-flex m-0 p-0 text-base text-gray-450">
-                    {productDetail.item.description}
+                    {productDetail.item.description
+                      ? productDetail.item.description
+                      : 'El vendedor no ha añadido ninguna descripción del producto.'}
                   </p>
                 </div>
               </div>
