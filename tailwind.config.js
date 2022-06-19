@@ -23,6 +23,7 @@ module.exports = {
         xs: '4px',
       },
       minWidth: {
+        13.25: '53px',
         45: '180px',
         '2.5xl': '680px',
       },

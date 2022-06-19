@@ -30,7 +30,7 @@ function Header() {
             <img
               src={IMG_LOGO}
               alt="Mercado Libre"
-              className="mr-3 sm:mr-6 inline-flex border-none outline-none"
+              className="mr-3 sm:mr-6 min-w-13.25 inline-flex border-none outline-none"
             />
           </Link>
 
