@@ -9,7 +9,7 @@ import IMG_ICON_SEARCH from '../../assets/images/icon-search.png';
 function Header() {
   const navigate = useNavigate();
   const query = useQuery();
-  const querySearch = query.get('search') ?? '';
+  const querySearch = query.get('search') || '';
 
   const [inputValue, setInputValue] = useState('');
 
