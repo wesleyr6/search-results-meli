@@ -52,8 +52,10 @@ First of all, you need to configure your environment variables creating a `.env`
 
 ### Environment Variables
 
-`REACT_APP_API_URL=https://meli-express-api.herokuapp.com/api`
-`PORT=3000`
+```
+REACT_APP_API_URL=https://meli-express-api.herokuapp.com/api
+PORT=3000
+```
 
 ### Install the dependecies packages
 
