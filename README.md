@@ -47,6 +47,9 @@ The backend was built in NodeJS with Express as a bridge between our frontend si
 
 [https://github.com/wesleyr6/search-results-meli-api](https://github.com/wesleyr6/search-results-meli-api)
 
+## Google Lighthouse
+<img src="public/homepage_lighthouse.png" alt="Lighthouse">
+
 ## Demo
 
 ### First Page
