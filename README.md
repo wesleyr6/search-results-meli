@@ -1,4 +1,16 @@
-# MELI Search results built with React 18 + Typescript 4 and TailwindCSS CLI
+<h1 align="center">MELI Search Results (React 18 + Typescript 4 + TailwindCSS)</h1>
+
+<p align="center">
+  <a href="https://dashboard.heroku.com/pipelines/24eda269/tests" target="_blank">
+    <img src="https://meli-react-badge.herokuapp.com/last.svg" />
+  </a>
+  <a href="https://meli-react-dev.herokuapp.com/" target="_blank">
+    <img src="https://img.shields.io/badge/-development-red" />
+  </a>
+  <a href="https://meli-react.herokuapp.com/" target="_blank">
+    <img src="https://img.shields.io/badge/-production-purple" />
+  </a>
+</p>
 
 This project was built to practice react, typescript, tailwind and responsive web design.
 
